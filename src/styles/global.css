@@ -93,8 +93,11 @@ h1 {
 
 h1 em { color: var(--mint-dark); font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 .lede { max-width: 690px; margin: 34px 0 0; color: var(--ink-soft); font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.65; }
-.role-scope { max-width: 760px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 28px; background: var(--line); border: 1px solid var(--line); }
-.role-scope p { margin: 0; padding: 18px; color: var(--ink-soft); background: rgba(251,250,246,0.62); font-size: 0.82rem; line-height: 1.55; }
+.charter { max-width: 720px; margin: 18px 0 0; color: var(--mint-dark); font-weight: 700; line-height: 1.55; }
+.role-scope { max-width: 840px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 28px; background: var(--line); border: 1px solid var(--line); }
+.role-scope article { padding: 18px; background: rgba(251,250,246,0.62); }
+.role-scope span { display: block; min-height: 30px; margin-bottom: 10px; color: var(--mint-dark); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+.role-scope p { margin: 0; color: var(--ink-soft); font-size: 0.78rem; line-height: 1.55; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
 
 .button {

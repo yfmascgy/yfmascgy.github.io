@@ -7,9 +7,11 @@ export const navigation = [
 
 export const profile = {
   currentRole: 'Sr. Engineering Manager',
-  leadership: 'I lead Uber’s Mobile and Edge Networking organization.',
+  leadership: 'I lead Uber’s Mobile, Edge, and Autonomous Vehicle Networking organization.',
+  networkCharter: 'My charter is to build and operate Uber’s global network to be reliable, fast, cost-efficient, secure, and multi-cloud ready.',
   edgeScope: 'The Edge Networking team manages all Layer 7 traffic into Uber, supporting both mobile and web platforms, and owns Uber’s anti-DDoS infrastructure and network security.',
   mobileScope: 'The Mobile Networking team owns the mobile networking stack, libraries, and observability infrastructure across all Uber apps on iOS and Android.',
+  autonomousVehicleScope: 'The Autonomous Vehicle Networking team enables reliable vehicle-to-cloud connectivity for autonomous vehicles.',
   xlinkImpact: 'XLINK deployed the Multipath QUIC protocol to Taobao at scale.',
   ietfImpact: 'I am also one of the authors of the IETF Multipath QUIC protocol.',
 } as const;

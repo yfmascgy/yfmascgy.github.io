@@ -17,10 +17,12 @@ const projectRoot = fileURLToPath(new URL('..', import.meta.url));
 describe('portfolio content', () => {
   it('uses the current Uber title and team responsibilities verbatim', () => {
     expect(profile.currentRole).toBe('Sr. Engineering Manager');
-    expect(profile.leadership).toBe('I lead Uber’s Mobile and Edge Networking organization.');
+    expect(profile.leadership).toBe('I lead Uber’s Mobile, Edge, and Autonomous Vehicle Networking organization.');
+    expect(profile.networkCharter).toContain('reliable, fast, cost-efficient, secure, and multi-cloud ready');
     expect(profile.edgeScope).toContain('manages all Layer 7 traffic into Uber');
     expect(profile.edgeScope).toContain('anti-DDoS infrastructure and network security');
     expect(profile.mobileScope).toBe('The Mobile Networking team owns the mobile networking stack, libraries, and observability infrastructure across all Uber apps on iOS and Android.');
+    expect(profile.autonomousVehicleScope).toBe('The Autonomous Vehicle Networking team enables reliable vehicle-to-cloud connectivity for autonomous vehicles.');
     expect(profile.xlinkImpact).toBe('XLINK deployed the Multipath QUIC protocol to Taobao at scale.');
     expect(profile.ietfImpact).toBe('I am also one of the authors of the IETF Multipath QUIC protocol.');
   });
@@ -64,6 +66,11 @@ describe('portfolio content', () => {
     const styles = await readFile(`${projectRoot}/src/styles/global.css`, 'utf8');
     expect(styles).toMatch(/\.portrait-frame\s*\{[^}]*border-radius:\s*50%/s);
     expect(styles).toMatch(/\.about-portrait\s*\{[^}]*border-radius:\s*50%/s);
+  });
+
+  it('lays out the three networking teams as equal columns', async () => {
+    const styles = await readFile(`${projectRoot}/src/styles/global.css`, 'utf8');
+    expect(styles).toMatch(/\.role-scope\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*1fr\)/s);
   });
 });
 

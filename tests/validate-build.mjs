@@ -14,13 +14,18 @@ await Promise.all([
 const home = await readFile('dist/index.html', 'utf8');
 const research = await readFile('dist/research/index.html', 'utf8');
 
-assert.match(home, /Building the networks behind/);
+assert.match(home, /Engineering the global network that/);
+assert.match(home, /keeps Uber moving/);
+assert.match(home, /reliable, fast, cost-efficient, secure, and multi-cloud ready/);
 assert.match(home, /Sr\. Engineering Manager/);
 assert.match(home, /manages all Layer 7 traffic into Uber/);
 assert.match(home, /across all Uber apps on iOS and Android/);
 assert.match(home, /anti-DDoS infrastructure and network security/);
 assert.match(home, /XLINK deployed the Multipath QUIC protocol to Taobao at scale/);
 assert.match(home, /authors of the IETF Multipath QUIC protocol/);
+assert.match(home, /Autonomous Vehicle Networking/);
+assert.match(home, /reliable vehicle-to-cloud connectivity for autonomous vehicles/);
+assert.doesNotMatch(home, /Building the networks behind real-time experiences/);
 assert.match(home, /data-shape="round"/);
 assert.doesNotMatch(home, /Senior Staff Network Architect|Network architect/);
 assert.match(home, /property="og:image"/);

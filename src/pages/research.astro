@@ -1,6 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { publications } from '../data/site';
+
+const publicationRecords = publications.map((publication) => ({
+  ...publication,
+  authorParts: publication.correspondingAuthor
+    ? publication.authors.split(publication.correspondingAuthor)
+    : [publication.authors],
+}));
 ---
 
 <BaseLayout title="Research — Yunfei Ma" description="Selected publications by Yunfei Ma in global networking, real-time media, wireless systems, sensing, and localization.">
@@ -16,15 +23,27 @@ import { publications } from '../data/site';
       <a class="text-link" href="https://scholar.google.com/citations?user=tWda9dcAAAAJ&hl=en&oi=ao">Google Scholar <span aria-hidden="true">↗</span></a>
     </div>
 
+    <p class="corresponding-legend"><sup>*</sup> Corresponding author</p>
     <div class="publication-list">
-      {publications.map((publication, index) => (
+      {publicationRecords.map((publication, index) => (
         <article class="publication">
           <div class="publication-index">{String(index + 1).padStart(2, '0')}</div>
           <div class="publication-main">
             <div class="publication-meta"><span>{publication.venue}</span><span>{publication.year}</span><span>{publication.category}</span></div>
             <h3>{publication.title}</h3>
             <p class="publication-description">{publication.description}</p>
-            <p class="authors">{publication.authors}</p>
+            <p class="authors">
+              {publication.authorParts.map((part, authorIndex) => (
+                <Fragment>
+                  {part}
+                  {publication.correspondingAuthor && authorIndex < publication.authorParts.length - 1 && (
+                    <span class="corresponding-author" aria-label={`${publication.correspondingAuthor}, corresponding author`}>
+                      {publication.correspondingAuthor}<sup aria-hidden="true">*</sup>
+                    </span>
+                  )}
+                </Fragment>
+              ))}
+            </p>
           </div>
           {publication.href ? <a class="publication-link" href={publication.href} aria-label={`Open ${publication.title}`}>↗</a> : <span class="publication-link muted-arrow">—</span>}
         </article>

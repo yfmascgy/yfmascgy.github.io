@@ -63,6 +63,18 @@ describe('portfolio content', () => {
     expect(xlink?.description).toContain('authors of the IETF Multipath QUIC protocol');
   });
 
+  it('marks only Cellfusion, GSO-Simulcast, and XLINK with Yunfei Ma as corresponding author', () => {
+    const correspondingPapers = publications
+      .filter(({ correspondingAuthor }) => correspondingAuthor)
+      .map(({ correspondingAuthor, title }) => ({ correspondingAuthor, title }));
+
+    expect(correspondingPapers).toEqual([
+      { correspondingAuthor: 'Yunfei Ma', title: expect.stringMatching(/^Cellfusion/) },
+      { correspondingAuthor: 'Yunfei Ma', title: expect.stringMatching(/^GSO-Simulcast/) },
+      { correspondingAuthor: 'Yunfei Ma', title: expect.stringMatching(/^XLINK/) },
+    ]);
+  });
+
   it('points every local publication link to an existing public asset', async () => {
     const localLinks = publications.flatMap(({ href }) => href?.startsWith('/') ? [href] : []);
     await Promise.all(localLinks.map((href) => access(`${projectRoot}/public${href}`)));

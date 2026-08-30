@@ -26,6 +26,7 @@ export interface Publication {
   href?: string;
   category: 'Networks' | 'Wireless & sensing';
   featured?: boolean;
+  correspondingAuthor?: string;
 }
 
 export const publications: Publication[] = [
@@ -38,6 +39,7 @@ export const publications: Publication[] = [
     href: '/papers/cellfusion.pdf',
     category: 'Networks',
     featured: true,
+    correspondingAuthor: 'Yunfei Ma',
   },
   {
     year: 2023,
@@ -56,6 +58,7 @@ export const publications: Publication[] = [
     href: '/papers/gso-simulcast.pdf',
     category: 'Networks',
     featured: true,
+    correspondingAuthor: 'Yunfei Ma',
   },
   {
     year: 2022,
@@ -75,6 +78,7 @@ export const publications: Publication[] = [
     href: '/papers/xlink.pdf',
     category: 'Networks',
     featured: true,
+    correspondingAuthor: 'Yunfei Ma',
   },
   {
     year: 2021,

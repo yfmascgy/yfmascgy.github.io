@@ -15,6 +15,10 @@ const home = await readFile('dist/index.html', 'utf8');
 const research = await readFile('dist/research/index.html', 'utf8');
 
 assert.match(home, /Building the networks behind/);
+assert.match(home, /Sr\. Engineering Manager/);
+assert.match(home, /manages all Layer 7 traffic into Uber/);
+assert.match(home, /across all Uber apps on iOS and Android/);
+assert.doesNotMatch(home, /Senior Staff Network Architect|Network architect/);
 assert.match(home, /property="og:image"/);
 assert.match(home, /Skip to content/);
 assert.doesNotMatch(home, /jquery|bootstrap\.min/i);

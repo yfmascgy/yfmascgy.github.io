@@ -7,6 +7,7 @@ import {
   keynotes,
   navigation,
   patents,
+  profile,
   publications,
   updates,
 } from '../src/data/site';
@@ -14,6 +15,13 @@ import {
 const projectRoot = fileURLToPath(new URL('..', import.meta.url));
 
 describe('portfolio content', () => {
+  it('uses the current Uber title and team responsibilities verbatim', () => {
+    expect(profile.currentRole).toBe('Sr. Engineering Manager');
+    expect(profile.leadership).toBe('I lead Uber’s Mobile and Edge Networking organization.');
+    expect(profile.edgeScope).toBe('The Edge Networking team manages all Layer 7 traffic into Uber, supporting both mobile and web platforms.');
+    expect(profile.mobileScope).toBe('The Mobile Networking team owns the mobile networking stack, libraries, and observability infrastructure across all Uber apps on iOS and Android.');
+  });
+
   it('retains the complete selected research archive', () => {
     expect(publications).toHaveLength(14);
     expect(new Set(publications.map(({ title }) => title)).size).toBe(publications.length);

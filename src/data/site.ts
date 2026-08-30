@@ -5,6 +5,13 @@ export const navigation = [
   { href: '/about', label: 'About' },
 ] as const;
 
+export const profile = {
+  currentRole: 'Sr. Engineering Manager',
+  leadership: 'I lead Uber’s Mobile and Edge Networking organization.',
+  edgeScope: 'The Edge Networking team manages all Layer 7 traffic into Uber, supporting both mobile and web platforms.',
+  mobileScope: 'The Mobile Networking team owns the mobile networking stack, libraries, and observability infrastructure across all Uber apps on iOS and Android.',
+} as const;
+
 export interface Publication {
   year: number;
   venue: string;

@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { awards, patents } from '../data/site';
+import { awards, patents, profile } from '../data/site';
 ---
 
-<BaseLayout title="About — Yunfei Ma" description="About Yunfei Ma, a network architect, engineering leader, and researcher based in Sunnyvale, California.">
+<BaseLayout title="About — Yunfei Ma" description="About Yunfei Ma, a Sr. Engineering Manager at Uber leading Mobile and Edge Networking, and a researcher based in Sunnyvale, California.">
   <section class="page-hero about-hero shell">
     <div>
       <p class="eyebrow"><span></span> About</p>
@@ -13,9 +13,11 @@ import { awards, patents } from '../data/site';
   </section>
 
   <section class="bio-section shell">
-    <aside><p>Now</p><strong>Senior Staff Network Architect & Senior Manager</strong><span>Uber · Sunnyvale, California</span></aside>
+    <aside><p>Now</p><strong>{profile.currentRole}</strong><span>Uber · Sunnyvale, California</span></aside>
     <div class="bio-copy">
-      <p>I lead Uber’s mobile and edge network organization, responsible for the infrastructure that manages the company’s ingress and egress Internet traffic.</p>
+      <p>{profile.leadership}</p>
+      <p>{profile.edgeScope}</p>
+      <p>{profile.mobileScope}</p>
       <p>Previously, I was a researcher and senior manager at Alibaba Group in Sunnyvale, where I helped build mobile and wide-area networking technologies for Alibaba’s global infrastructure across commerce, video conferencing, and cloud services.</p>
       <p>Before industry, I was a postdoctoral associate in the Signal Kinetics group at MIT Media Lab, supervised by Professor Fadel Adib. I earned my Ph.D. in Electrical and Computer Engineering from Cornell University, advised by Professor Edwin C. Kan, and my B.Sc. in Electrical Engineering from the University of Science and Technology of China.</p>
       <div class="bio-actions"><a class="button button-primary" href="/Yunfei_CV.pdf">Download CV <span>↗</span></a><a class="button button-secondary" href="https://scholar.google.com/citations?user=tWda9dcAAAAJ&hl=en&oi=ao">Google Scholar <span>↗</span></a></div>

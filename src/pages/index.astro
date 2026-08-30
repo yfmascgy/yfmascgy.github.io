@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { publications, updates } from '../data/site';
+import { profile, publications, updates } from '../data/site';
 
 const featuredWork = publications.filter((publication) => publication.featured).slice(0, 3);
 ---
@@ -8,9 +8,13 @@ const featuredWork = publications.filter((publication) => publication.featured).
 <BaseLayout>
     <section class="hero shell" transition:animate="fade">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> Network architect · researcher · builder</p>
+        <p class="eyebrow"><span></span> Engineering leader · researcher · builder</p>
         <h1>Building the networks behind <em>real-time experiences.</em></h1>
-        <p class="lede">I’m Yunfei Ma, a Senior Staff Network Architect and senior manager at Uber. I lead teams working on the mobile and edge systems that keep global experiences fast, reliable, and connected.</p>
+        <p class="lede">I’m Yunfei Ma, a {profile.currentRole} at Uber. {profile.leadership}</p>
+        <div class="role-scope" aria-label="Mobile and Edge Networking responsibilities">
+          <p>{profile.edgeScope}</p>
+          <p>{profile.mobileScope}</p>
+        </div>
         <div class="hero-actions">
           <a class="button button-primary" href="/research">Explore my work <span aria-hidden="true">→</span></a>
           <a class="button button-secondary" href="https://scholar.google.com/citations?user=tWda9dcAAAAJ&hl=en&oi=ao">Google Scholar <span aria-hidden="true">↗</span></a>
@@ -74,8 +78,8 @@ const featuredWork = publications.filter((publication) => publication.featured).
           <h2>From edge connectivity to planetary-scale media.</h2>
         </div>
         <div class="focus-list">
-          <article><span>01</span><div><h3>Global edge systems</h3><p>Operating the critical ingress and egress paths that connect real-time services to the world.</p></div></article>
-          <article><span>02</span><div><h3>Multipath transport</h3><p>Making applications more resilient by orchestrating multiple networks as one.</p></div></article>
+          <article><span>01</span><div><h3>Edge Networking</h3><p>Managing all Layer 7 traffic into Uber across both mobile and web platforms.</p></div></article>
+          <article><span>02</span><div><h3>Mobile Networking</h3><p>Owning the networking stack, libraries, and observability infrastructure across Uber’s iOS and Android apps.</p></div></article>
           <article><span>03</span><div><h3>Wireless sensing</h3><p>Extending connectivity to battery-free devices, robots, and miniature medical systems.</p></div></article>
         </div>
       </div>

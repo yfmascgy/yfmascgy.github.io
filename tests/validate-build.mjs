@@ -18,11 +18,20 @@ assert.match(home, /Building the networks behind/);
 assert.match(home, /Sr\. Engineering Manager/);
 assert.match(home, /manages all Layer 7 traffic into Uber/);
 assert.match(home, /across all Uber apps on iOS and Android/);
+assert.match(home, /anti-DDoS infrastructure and network security/);
+assert.match(home, /XLINK deployed the Multipath QUIC protocol to Taobao at scale/);
+assert.match(home, /authors of the IETF Multipath QUIC protocol/);
+assert.match(home, /data-shape="round"/);
 assert.doesNotMatch(home, /Senior Staff Network Architect|Network architect/);
 assert.match(home, /property="og:image"/);
 assert.match(home, /Skip to content/);
 assert.doesNotMatch(home, /jquery|bootstrap\.min/i);
 assert.match(research, /Cellfusion/);
 assert.match(research, /Enabling Deep-Tissue Networking/);
+
+const about = await readFile('dist/about/index.html', 'utf8');
+assert.match(about, /Uber Reimagine Award Finalist/);
+assert.match(about, /multi-layer anti-DDoS infrastructure for Uber/);
+assert.match(about, /data-shape="round"/);
 
 console.log('Production build validation passed.');

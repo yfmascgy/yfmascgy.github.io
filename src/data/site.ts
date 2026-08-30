@@ -8,8 +8,10 @@ export const navigation = [
 export const profile = {
   currentRole: 'Sr. Engineering Manager',
   leadership: 'I lead Uber’s Mobile and Edge Networking organization.',
-  edgeScope: 'The Edge Networking team manages all Layer 7 traffic into Uber, supporting both mobile and web platforms.',
+  edgeScope: 'The Edge Networking team manages all Layer 7 traffic into Uber, supporting both mobile and web platforms, and owns Uber’s anti-DDoS infrastructure and network security.',
   mobileScope: 'The Mobile Networking team owns the mobile networking stack, libraries, and observability infrastructure across all Uber apps on iOS and Android.',
+  xlinkImpact: 'XLINK deployed the Multipath QUIC protocol to Taobao at scale.',
+  ietfImpact: 'I am also one of the authors of the IETF Multipath QUIC protocol.',
 } as const;
 
 export interface Publication {
@@ -67,7 +69,7 @@ export const publications: Publication[] = [
     venue: 'ACM SIGCOMM',
     title: 'XLINK: QoE-Driven Multi-Path QUIC Transport in Large-Scale Video Services',
     authors: 'Zhilong Zheng, Yunfei Ma, Yanmei Liu, Furong Yang, Zhenyu Li, Yuanbo Zhang, Jiuhai Zhang, Wei Shi, Wentao Chen, Ding Li, Qing An, Hai Hong, Hongqiang Harry Liu, and Ming Zhang',
-    description: 'A multipath transport deployed in large-scale video services to improve quality of experience.',
+    description: 'A production transport system that deployed the Multipath QUIC protocol to Taobao at scale.',
     href: '/papers/xlink.pdf',
     category: 'Networks',
     featured: true,
@@ -238,6 +240,7 @@ export interface Award {
 }
 
 export const awards: Award[] = [
+  { year: 2025, title: 'Uber Reimagine Award Finalist', detail: 'Contributions & leadership in building multi-layer anti-DDoS infrastructure for Uber' },
   { year: 2021, title: 'DAMO Academy Individual Award finalist', detail: 'Top 0.4%' },
   { year: 2018, title: 'ACM SIGCOMM Research Highlight', detail: 'IVN' },
   { year: 2018, title: 'China Young Scientist Computing Association Rising Star' },

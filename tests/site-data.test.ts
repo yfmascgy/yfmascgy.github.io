@@ -34,10 +34,12 @@ describe('portfolio content', () => {
   });
 
   it('retains the complete selected research archive', () => {
-    expect(publications).toHaveLength(14);
+    expect(publications).toHaveLength(13);
     expect(new Set(publications.map(({ title }) => title)).size).toBe(publications.length);
     expect(publications.some(({ title }) => title.startsWith('Cellfusion'))).toBe(true);
     expect(publications.some(({ title }) => title.startsWith('Enabling Deep-Tissue'))).toBe(true);
+    expect(publications.some(({ venue }) => venue === 'IEEE TMTT')).toBe(false);
+    expect(publications.some(({ title }) => title.startsWith('Accurate Indoor Ranging'))).toBe(false);
   });
 
   it('keeps publications in reverse chronological order', () => {
@@ -171,6 +173,7 @@ describe('portfolio content', () => {
     expect(home).not.toContain('profile-cta');
     expect(home).not.toContain('signal-strip');
     expect(research).toContain('<h1>Selected publications</h1>');
+    expect(research).not.toContain('class="metrics shell"');
     expect(talks).toContain('<h1>Talks & keynotes</h1>');
     expect(about).toContain('<h1>About</h1>');
     expect(news).toContain('<h1>News & milestones</h1>');

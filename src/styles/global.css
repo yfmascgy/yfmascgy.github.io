@@ -165,13 +165,8 @@ h1 em { color: var(--mint-dark); font-family: Georgia, "Times New Roman", serif;
 .page-hero > p:last-child { max-width: 720px; margin: 26px 0 0; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.7; }
 .page-hero-short { padding-bottom: 72px; }
 
-.metrics { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); background: var(--paper-bright); }
-.metrics div { display: flex; flex-direction: column; padding: 24px 28px; }
-.metrics div + div { border-left: 1px solid var(--line); }
-.metrics strong { font-family: Georgia, serif; color: var(--mint-dark); font-size: 2.3rem; font-weight: 400; }
-.metrics span { margin-top: 5px; color: var(--muted); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
 .compact-heading h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); }
-.research-section { padding-top: 96px; }
+.research-section { padding-top: 24px; }
 
 .publication-list { border-top: 1px solid var(--ink); }
 .publication { display: grid; grid-template-columns: 54px 1fr 40px; gap: 28px; padding: 38px 0 42px; border-bottom: 1px solid var(--line); }
@@ -301,8 +296,6 @@ h1 em { color: var(--mint-dark); font-family: Georgia, "Times New Roman", serif;
   .bio-section, .split-section, .about-hero, .service-section, .media-layout { grid-template-columns: 1fr; }
   .page-hero { padding-block: 58px 66px; }
   .page-hero > p:last-child { margin-left: 0; }
-  .metrics { grid-template-columns: 1fr; }
-  .metrics div + div { border-left: 0; border-top: 1px solid var(--line); }
   .publication { grid-template-columns: 34px 1fr; gap: 18px; }
   .publication-link { grid-column: 2; }
   .keynote-grid { grid-template-columns: 1fr; }

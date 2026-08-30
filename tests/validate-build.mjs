@@ -55,6 +55,8 @@ assert.doesNotMatch(home, /jquery|bootstrap\.min/i);
 assert.match(research, /<h1>Selected publications<\/h1>/);
 assert.match(research, /Cellfusion/);
 assert.match(research, /Enabling Deep-Tissue Networking/);
+assert.doesNotMatch(research, /class="metrics shell"/);
+assert.doesNotMatch(research, /IEEE TMTT|Accurate Indoor Ranging/);
 assert.match(talks, /<h1>Talks & keynotes<\/h1>/);
 assert.match(news, /USENIX NSDI 2027 Technical Program Committee/);
 assert.match(news, /<time>2026<\/time><h2>Served on the USENIX NSDI 2027 Technical Program Committee\.<\/h2>/);

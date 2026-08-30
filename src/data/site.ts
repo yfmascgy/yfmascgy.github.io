@@ -149,15 +149,6 @@ export const publications: Publication[] = [
     href: '/papers/3d-localization.pdf',
     category: 'Wireless & sensing',
   },
-  {
-    year: 2014,
-    venue: 'IEEE TMTT',
-    title: 'Accurate Indoor Ranging by Broadband Harmonic Generation in Passive NLTL Backscatter Tags',
-    authors: 'Yunfei Ma and Edwin C. Kan',
-    description: 'Broadband harmonic backscatter techniques for accurate indoor ranging.',
-    href: 'https://ieeexplore.ieee.org/document/6779680',
-    category: 'Wireless & sensing',
-  },
 ];
 
 export const keynotes = [

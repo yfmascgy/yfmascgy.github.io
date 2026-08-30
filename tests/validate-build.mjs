@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { access, readFile } from 'node:fs/promises';
 
 const routes = ['index', 'research/index', 'talks/index', 'about/index', 'updates/index'];
@@ -37,8 +38,13 @@ assert.match(research, /Cellfusion/);
 assert.match(research, /Enabling Deep-Tissue Networking/);
 
 const about = await readFile('dist/about/index.html', 'utf8');
+const builtCv = await readFile('dist/Yunfei_CV.pdf');
 assert.match(about, /Uber Reimagine Award Finalist/);
 assert.match(about, /multi-layer anti-DDoS infrastructure for Uber/);
 assert.match(about, /data-shape="round"/);
+assert.match(about, /Committee service/);
+assert.match(about, /USENIX NSDI/);
+assert.match(about, /ACM Mobisys/);
+assert.equal(createHash('sha256').update(builtCv).digest('hex'), 'a3b10b152d78158d433c205003a289e02d8e09c62210a6eff61af11de16c4cb2');
 
 console.log('Production build validation passed.');

@@ -251,3 +251,16 @@ export const awards: Award[] = [
   { year: 2010, title: 'Best Undergraduate Thesis', detail: 'USTC' },
   { year: 2009, title: 'National Scholarship', detail: 'Ministry of Education, China' },
 ];
+
+export const committeeService = [
+  { year: 2027, organization: 'USENIX NSDI', role: 'Technical Program Committee' },
+  { year: 2025, organization: 'ACM MobiCom', role: 'Technical Program Committee' },
+  { year: 2024, organization: 'ACM SIGCOMM', role: 'Technical Program Committee' },
+  { year: 2024, organization: 'ACM HotMobile', role: 'Technical Program Committee' },
+  { year: 2021, organization: 'IEEE GlobeCom', role: 'Technical Program Committee' },
+  { year: 2020, organization: 'IEEE INFOCOM', role: 'Technical Program Committee' },
+  { year: 2019, organization: 'IEEE INFOCOM', role: 'Technical Program Committee' },
+  { year: 2018, organization: 'ACM CoNEXT', role: 'Technical Program Committee' },
+  { year: 2018, organization: 'ACM MobiCom', role: 'Workshop Technical Program Committee' },
+  { year: 2018, organization: 'ACM Mobisys', role: 'Workshop Technical Program Committee' },
+] as const;

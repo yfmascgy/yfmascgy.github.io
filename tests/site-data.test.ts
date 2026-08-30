@@ -1,8 +1,10 @@
+import { createHash } from 'node:crypto';
 import { access, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   awards,
+  committeeService,
   conferenceTalks,
   keynotes,
   navigation,
@@ -71,6 +73,27 @@ describe('portfolio content', () => {
       detail: 'Contributions & leadership in building multi-layer anti-DDoS infrastructure for Uber',
     });
     expect(updates.length).toBeGreaterThanOrEqual(15);
+  });
+
+  it('publishes the complete committee service history in reverse chronological order', () => {
+    expect(committeeService.map(({ organization, role, year }) => `${organization} ${role} ${year}`)).toEqual([
+      'USENIX NSDI Technical Program Committee 2027',
+      'ACM MobiCom Technical Program Committee 2025',
+      'ACM SIGCOMM Technical Program Committee 2024',
+      'ACM HotMobile Technical Program Committee 2024',
+      'IEEE GlobeCom Technical Program Committee 2021',
+      'IEEE INFOCOM Technical Program Committee 2020',
+      'IEEE INFOCOM Technical Program Committee 2019',
+      'ACM CoNEXT Technical Program Committee 2018',
+      'ACM MobiCom Workshop Technical Program Committee 2018',
+      'ACM Mobisys Workshop Technical Program Committee 2018',
+    ]);
+  });
+
+  it('links the June 2026 full CV revision', async () => {
+    const cv = await readFile(`${projectRoot}/public/Yunfei_CV.pdf`);
+    expect(cv).toHaveLength(100941);
+    expect(createHash('sha256').update(cv).digest('hex')).toBe('a3b10b152d78158d433c205003a289e02d8e09c62210a6eff61af11de16c4cb2');
   });
 
   it('keeps update years in reverse chronological order', () => {

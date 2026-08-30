@@ -252,6 +252,17 @@ h1 em { color: var(--mint-dark); font-family: Georgia, "Times New Roman", serif;
 .patent-list { margin: 0; padding: 0; list-style-position: inside; border-top: 1px solid var(--ink); }
 .patent-list li { padding: 20px 0; border-bottom: 1px solid var(--line); color: var(--ink-soft); line-height: 1.55; }
 .patent-list li::marker { color: var(--mint-dark); font-size: 0.75rem; font-weight: 800; }
+.service-section { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 10vw; padding-block: 20px 130px; }
+.service-intro h2 { margin: 0; font-size: clamp(2.6rem, 4vw, 4rem); letter-spacing: -0.045em; }
+.service-intro > p:last-child { max-width: 360px; margin: 24px 0 0; color: var(--muted); line-height: 1.6; }
+.service-list { display: grid; grid-template-columns: 1fr 1fr; margin: 0; padding: 0; border-top: 1px solid var(--ink); list-style: none; }
+.service-list li { display: grid; grid-template-columns: 52px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.service-list li:nth-child(odd) { padding-right: 24px; }
+.service-list li:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--line); }
+.service-list time { color: var(--mint-dark); font-size: 0.75rem; font-weight: 800; }
+.service-list strong, .service-list span { display: block; }
+.service-list strong { line-height: 1.35; }
+.service-list span { margin-top: 5px; color: var(--muted); font-size: 0.78rem; line-height: 1.45; }
 
 .news-archive { padding-top: 0; }
 .news-archive article { display: grid; grid-template-columns: 60px 80px 1fr 30px; align-items: start; gap: 28px; padding: 32px 0; border-top: 1px solid var(--line); }
@@ -288,7 +299,7 @@ h1 em { color: var(--mint-dark); font-family: Georgia, "Times New Roman", serif;
   .section-heading { align-items: start; flex-direction: column; }
   .work-grid { grid-template-columns: 1fr; }
   .work-card { min-height: 270px; }
-  .focus-grid, .bio-section, .split-section, .about-hero { grid-template-columns: 1fr; }
+  .focus-grid, .bio-section, .split-section, .about-hero, .service-section { grid-template-columns: 1fr; }
   .focus-grid { gap: 60px; padding-block: 84px; }
   .focus-grid > div:first-child { position: static; }
   .profile-cta { grid-template-columns: 1fr; padding: 40px 28px; margin-bottom: 80px; }
@@ -306,6 +317,7 @@ h1 em { color: var(--mint-dark); font-family: Georgia, "Times New Roman", serif;
   .talk-list > article > a, .unavailable { grid-column: 2; justify-self: start; }
   .about-portrait { max-width: 360px; }
   .bio-section { gap: 64px; padding-block: 80px; }
+  .service-section { gap: 48px; padding-bottom: 100px; }
   .experience-highlights { grid-template-columns: 1fr; }
   .career-track { grid-template-columns: 1fr; border-top: 0; }
   .career-track article, .career-track article + article { min-height: 0; padding: 24px 0 24px 28px; border-top: 1px solid rgba(255,255,255,0.2); border-left: 0; }
@@ -326,6 +338,8 @@ h1 em { color: var(--mint-dark); font-family: Georgia, "Times New Roman", serif;
   .update-row { grid-template-columns: 54px 1fr 22px; gap: 12px; }
   .publication { grid-template-columns: 1fr; }
   .publication-index, .publication-link { grid-column: 1; }
+  .service-list { grid-template-columns: 1fr; }
+  .service-list li:nth-child(odd), .service-list li:nth-child(even) { padding-inline: 0; border-left: 0; }
   .footer-base { flex-direction: column; gap: 10px; }
 }
 

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { awards, patents, profile } from '../data/site';
+import { awards, committeeService, patents, profile } from '../data/site';
 ---
 
 <BaseLayout title="About — Yunfei Ma" description="About Yunfei Ma, a Sr. Engineering Manager at Uber leading Mobile, Edge, and Autonomous Vehicle Networking, and a researcher based in Sunnyvale, California.">
@@ -54,5 +54,21 @@ import { awards, patents, profile } from '../data/site';
       <h2>Patents</h2>
       <ol class="patent-list">{patents.map((patent) => <li>{patent}</li>)}</ol>
     </div>
+  </section>
+
+  <section class="service-section shell" aria-labelledby="service-heading">
+    <div class="service-intro">
+      <p class="kicker">Academic service</p>
+      <h2 id="service-heading">Committee service</h2>
+      <p>Supporting the systems and networking research community through technical program committees.</p>
+    </div>
+    <ol class="service-list">
+      {committeeService.map((service) => (
+        <li>
+          <time>{service.year}</time>
+          <div><strong>{service.organization}</strong><span>{service.role}</span></div>
+        </li>
+      ))}
+    </ol>
   </section>
 </BaseLayout>

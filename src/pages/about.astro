@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { awards, committeeService, patents, profile } from '../data/site';
+import { awards, committeeService, mediaCoverage, patents, profile } from '../data/site';
 ---
 
 <BaseLayout title="About — Yunfei Ma" description="About Yunfei Ma, a Sr. Engineering Manager at Uber leading Mobile & Edge Networking, and a researcher based in Sunnyvale, California.">
@@ -70,5 +70,24 @@ import { awards, committeeService, patents, profile } from '../data/site';
         </li>
       ))}
     </ol>
+  </section>
+
+  <section class="media-section dark-section" aria-labelledby="media-heading">
+    <div class="media-layout shell">
+      <div class="media-intro">
+        <p class="kicker kicker-light">In the media</p>
+        <h2 id="media-heading">Research covered around the world.</h2>
+        <p>Selected coverage of work spanning battery-free networks, in-body communication, and precise robotic sensing.</p>
+      </div>
+      <div class="media-grid">
+        {mediaCoverage.map((coverage) => (
+          <a class="media-card" href={coverage.href} aria-label={`${coverage.outlet} coverage of ${coverage.project}`}>
+            <span>{coverage.project}</span>
+            <strong>{coverage.outlet}</strong>
+            <i aria-hidden="true">↗</i>
+          </a>
+        ))}
+      </div>
+    </div>
   </section>
 </BaseLayout>

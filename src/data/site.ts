@@ -268,3 +268,24 @@ export const committeeService = [
   { year: 2018, organization: 'ACM MobiCom', role: 'Workshop Technical Program Committee' },
   { year: 2018, organization: 'ACM Mobisys', role: 'Workshop Technical Program Committee' },
 ] as const;
+
+export interface MediaCoverage {
+  outlet: string;
+  project: 'RFIQ' | 'IVN' | 'RFly' | 'TurboTrack';
+  href: string;
+}
+
+export const mediaCoverage: MediaCoverage[] = [
+  { outlet: 'CBS This Morning', project: 'RFIQ', href: 'https://www.youtube.com/watch?v=M-4WQDzI6wc' },
+  { outlet: 'The Verge', project: 'RFly', href: 'https://www.theverge.com/2017/9/2/16217302/mit-drones-billion-dollar-problem-inventory-rfid-tags' },
+  { outlet: 'IEEE Spectrum', project: 'RFly', href: 'https://spectrum.ieee.org/mit-builds-drone-based-rfid-relay-to-track-boxes-in-warehouses' },
+  { outlet: 'MIT News', project: 'TurboTrack', href: 'https://news.mit.edu/2019/robots-track-moving-objects-unprecedented-precision-0219' },
+  { outlet: 'MIT Technology Review', project: 'IVN', href: 'https://www.technologyreview.com/2018/06/05/142354/some-day-you-may-be-able-to-monitor-your-stomach-from-your-smartphone/' },
+  { outlet: 'Engadget', project: 'TurboTrack', href: 'https://www.engadget.com/2019-02-19-mit-rfid-tags-improve-robotic-accuracy.html' },
+  { outlet: 'International Business Times', project: 'RFly', href: 'https://www.ibtimes.co.uk/mits-new-tech-uses-tiny-drones-real-time-inventory-management-1636768' },
+  { outlet: 'RFID Journal', project: 'TurboTrack', href: 'https://www.rfidjournal.com/mit-researchers-develop-rfid-system-to-guide-robots' },
+  { outlet: 'ZDNET', project: 'TurboTrack', href: 'https://www.zdnet.com/article/rfid-tags-help-robots-locate-and-grab-moving-objects-in-milliseconds/' },
+  { outlet: 'Digital Trends', project: 'IVN', href: 'https://www.digitaltrends.com/cool-tech/wireless-charging-implant-125-feet/' },
+  { outlet: 'New Atlas', project: 'IVN', href: 'https://newatlas.com/mit-wireless-radio-wave-implant/54900/' },
+  { outlet: 'UPI', project: 'IVN', href: 'https://www.upi.com/Science_News/2018/06/05/Method-devised-for-wirelessly-powering-controlling-devices-inside-body/1991528131472/' },
+];

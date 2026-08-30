@@ -7,6 +7,7 @@ import {
   committeeService,
   conferenceTalks,
   keynotes,
+  mediaCoverage,
   navigation,
   patents,
   profile,
@@ -91,6 +92,22 @@ describe('portfolio content', () => {
       'ACM MobiCom Workshop Technical Program Committee 2018',
       'ACM Mobisys Workshop Technical Program Committee 2018',
     ]);
+  });
+
+  it('publishes a curated set of linked media coverage without duplicate outlets', () => {
+    expect(mediaCoverage).toHaveLength(12);
+    expect(new Set(mediaCoverage.map(({ outlet }) => outlet)).size).toBe(mediaCoverage.length);
+    expect(mediaCoverage.map(({ outlet }) => outlet)).toEqual(expect.arrayContaining([
+      'CBS This Morning',
+      'The Verge',
+      'IEEE Spectrum',
+      'MIT News',
+      'MIT Technology Review',
+      'Engadget',
+      'RFID Journal',
+    ]));
+    expect(mediaCoverage.every(({ href }) => href.startsWith('https://'))).toBe(true);
+    expect(new Set(mediaCoverage.map(({ project }) => project))).toEqual(new Set(['RFIQ', 'IVN', 'RFly', 'TurboTrack']));
   });
 
   it('links the June 2026 full CV revision', async () => {

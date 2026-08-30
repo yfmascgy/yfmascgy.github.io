@@ -67,6 +67,13 @@ assert.match(about, /data-shape="round"/);
 assert.match(about, /Committee service/);
 assert.match(about, /USENIX NSDI/);
 assert.match(about, /ACM Mobisys/);
+assert.match(about, /Research covered around the world/);
+assert.match(about, /Selected coverage of work spanning battery-free networks/);
+assert.match(about, /CBS This Morning/);
+assert.match(about, /The Verge/);
+assert.match(about, /IEEE Spectrum/);
+assert.match(about, /MIT Technology Review/);
+assert.match(about, /aria-label="MIT News coverage of TurboTrack"/);
 assert.equal(createHash('sha256').update(builtCv).digest('hex'), 'a3b10b152d78158d433c205003a289e02d8e09c62210a6eff61af11de16c4cb2');
 
 console.log('Production build validation passed.');

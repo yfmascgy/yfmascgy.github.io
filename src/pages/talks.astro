@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { conferenceTalks, keynotes } from '../data/site';
+---
+
+<BaseLayout title="Talks — Yunfei Ma" description="Invited keynotes and conference presentations by Yunfei Ma on global networking, QUIC, video systems, and wireless IoT.">
+  <section class="page-hero shell page-hero-short">
+    <p class="eyebrow"><span></span> Talks & keynotes</p>
+    <h1>Making complex systems <em>clear and useful.</em></h1>
+    <p>Invited talks and conference presentations on the architecture, deployment, and real-world impact of networked systems.</p>
+  </section>
+
+  <section class="dark-section talks-feature">
+    <div class="shell">
+      <p class="kicker kicker-light">Invited keynotes</p>
+      <div class="keynote-grid">
+        {keynotes.map((talk, index) => (
+          <article class="keynote-card">
+            <div><span>{String(index + 1).padStart(2, '0')}</span><span>{talk.event} · {talk.year}</span></div>
+            <h2>{talk.title}</h2>
+            <a href={talk.href}>{talk.format} <span aria-hidden="true">↗</span></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell">
+    <div class="section-heading compact-heading"><div><p class="kicker">On stage</p><h2>Conference talks</h2></div></div>
+    <div class="talk-list">
+      {conferenceTalks.map((talk) => (
+        <article>
+          <div class="talk-date"><strong>{talk.year}</strong><span>{talk.event}</span></div>
+          <h3>{talk.title}</h3>
+          {'href' in talk && talk.href ? <a href={talk.href} aria-label={`Watch ${talk.title}`}>Watch <span aria-hidden="true">↗</span></a> : <span class="unavailable">Archive</span>}
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

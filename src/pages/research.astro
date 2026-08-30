@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { publications } from '../data/site';
+---
+
+<BaseLayout title="Research — Yunfei Ma" description="Selected publications by Yunfei Ma in global networking, real-time media, wireless systems, sensing, and localization.">
+  <section class="page-hero shell">
+    <p class="eyebrow"><span></span> Selected research</p>
+    <h1>Systems that connect the <em>physical and digital worlds.</em></h1>
+    <p>My research spans global video infrastructure, multipath transport, wireless sensing, localization, and deeply embedded devices—with an emphasis on ideas that work outside the lab.</p>
+  </section>
+
+  <section class="metrics shell" aria-label="Research summary">
+    <div><strong>{publications.length}</strong><span>Selected publications</span></div>
+    <div><strong>11</strong><span>ACM & USENIX papers</span></div>
+    <div><strong>2</strong><span>Research themes</span></div>
+  </section>
+
+  <section class="section shell research-section" aria-labelledby="publications-heading">
+    <div class="section-heading compact-heading">
+      <div><p class="kicker">Archive</p><h2 id="publications-heading">Publications</h2></div>
+      <a class="text-link" href="https://scholar.google.com/citations?user=tWda9dcAAAAJ&hl=en&oi=ao">Google Scholar <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <div class="publication-list">
+      {publications.map((publication, index) => (
+        <article class="publication">
+          <div class="publication-index">{String(index + 1).padStart(2, '0')}</div>
+          <div class="publication-main">
+            <div class="publication-meta"><span>{publication.venue}</span><span>{publication.year}</span><span>{publication.category}</span></div>
+            <h3>{publication.title}</h3>
+            <p class="publication-description">{publication.description}</p>
+            <p class="authors">{publication.authors}</p>
+          </div>
+          {publication.href ? <a class="publication-link" href={publication.href} aria-label={`Open ${publication.title}`}>↗</a> : <span class="publication-link muted-arrow">—</span>}
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

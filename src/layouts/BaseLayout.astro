@@ -1,0 +1,76 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import { navigation } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Yunfei Ma — Network Architect & Researcher',
+  description = 'Yunfei Ma builds global network systems for real-time experiences and explores the frontiers of wireless and mobile networking.',
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const canonical = new URL(pathname, Astro.site);
+const socialImage = new URL('/og.png', Astro.site);
+const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#081722" />
+    <meta name="google-site-verification" content="dJPU9v-BEdhiS_fQSbaHNI55OR0gfj9XB_oecmPR0B8" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23081722%22/><path d=%22M14 18h9l9 15 9-15h9L36 40v8h-8v-8z%22 fill=%22%235ce1bd%22/></svg>" />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header shell">
+      <a class="monogram" href="/" aria-label="Yunfei Ma, home">YM</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        {navigation.map((item) => <a class:list={{ 'is-active': isActive(item.href) }} href={item.href}>{item.label}</a>)}
+      </nav>
+      <a class="quiet-link" href="/Yunfei_CV.pdf">CV <span aria-hidden="true">↗</span></a>
+      <details class="mobile-nav">
+        <summary aria-label="Open navigation">Menu</summary>
+        <div>
+          {navigation.map((item) => <a class:list={{ 'is-active': isActive(item.href) }} href={item.href}>{item.label}</a>)}
+          <a href="/Yunfei_CV.pdf">Download CV</a>
+        </div>
+      </details>
+    </header>
+    <main id="main-content"><slot /></main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <a class="monogram footer-mark" href="/" aria-label="Yunfei Ma, home">YM</a>
+          <p>Building resilient networks for real-time experiences.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://scholar.google.com/citations?user=tWda9dcAAAAJ&hl=en&oi=ao">Google Scholar <span>↗</span></a>
+          <a href="/Yunfei_CV.pdf">Curriculum vitae <span>↗</span></a>
+          <a href="/updates">News archive <span>→</span></a>
+        </div>
+      </div>
+      <div class="shell footer-base"><span>© {new Date().getFullYear()} Yunfei Ma</span><span>Sunnyvale, California</span></div>
+    </footer>
+  </body>
+</html>

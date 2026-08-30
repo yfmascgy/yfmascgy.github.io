@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { publications, updates } from '../data/site';
+
+const featuredWork = publications.filter((publication) => publication.featured).slice(0, 3);
+---
+
+<BaseLayout>
+    <section class="hero shell" transition:animate="fade">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Network architect · researcher · builder</p>
+        <h1>Building the networks behind <em>real-time experiences.</em></h1>
+        <p class="lede">I’m Yunfei Ma, a Senior Staff Network Architect and senior manager at Uber. I lead teams working on the mobile and edge systems that keep global experiences fast, reliable, and connected.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/research">Explore my work <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="https://scholar.google.com/citations?user=tWda9dcAAAAJ&hl=en&oi=ao">Google Scholar <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <aside class="portrait-card" aria-label="Portrait and current role">
+        <div class="portrait-frame">
+          <img src="/images/yunfei_bio.jpg" alt="Yunfei Ma" width="250" height="250" />
+        </div>
+        <div class="portrait-meta">
+          <div>
+            <span>Currently</span>
+            <strong>Uber</strong>
+          </div>
+          <div>
+            <span>Based in</span>
+            <strong>Sunnyvale, California</strong>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="signal-strip" aria-label="Areas of focus">
+      <div class="shell signal-list">
+        <span>Global networking</span>
+        <i></i>
+        <span>Real-time media</span>
+        <i></i>
+        <span>Wireless systems</span>
+        <i></i>
+        <span>Edge infrastructure</span>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="featured-heading">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">Selected work</p>
+          <h2 id="featured-heading">Research that moved from paper to production.</h2>
+        </div>
+        <a class="text-link" href="/research">View all research <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="work-grid">
+        {featuredWork.map((work, index) => (
+          <a class="work-card" href={work.href ?? '/research'} style={`--delay: ${index * 80}ms`}>
+            <div class="work-meta"><span>{work.venue}</span><span>{work.year}</span></div>
+            <h3>{work.title.split(':')[0]}</h3>
+            <p>{work.description}</p>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="dark-section">
+      <div class="shell focus-grid">
+        <div>
+          <p class="kicker kicker-light">What I work on</p>
+          <h2>From edge connectivity to planetary-scale media.</h2>
+        </div>
+        <div class="focus-list">
+          <article><span>01</span><div><h3>Global edge systems</h3><p>Operating the critical ingress and egress paths that connect real-time services to the world.</p></div></article>
+          <article><span>02</span><div><h3>Multipath transport</h3><p>Making applications more resilient by orchestrating multiple networks as one.</p></div></article>
+          <article><span>03</span><div><h3>Wireless sensing</h3><p>Extending connectivity to battery-free devices, robots, and miniature medical systems.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-heading">
+        <div><p class="kicker">Latest notes</p><h2>Milestones, ideas, and field notes.</h2></div>
+        <a class="text-link" href="/updates">View news archive <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="updates-preview">
+        {updates.slice(0, 3).map((update) => (
+          <article class="update-row">
+            <span>{update.year}</span>
+            <p>{update.title}</p>
+            {update.href ? <a href={update.href} aria-label={`Read more: ${update.title}`}>↗</a> : <i></i>}
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="profile-cta shell">
+      <p class="kicker">Beyond the systems</p>
+      <div><h2>Engineer, researcher, and team builder.</h2><p>My work connects academic ideas with production systems—from Cornell and MIT to Alibaba and Uber.</p></div>
+      <a class="button button-primary" href="/about">Read my story <span aria-hidden="true">→</span></a>
+    </section>
+</BaseLayout>

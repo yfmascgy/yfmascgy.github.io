@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { updates } from '../data/site';
+---
+
+<BaseLayout title="News — Yunfei Ma" description="Research, speaking, standards, and professional updates from Yunfei Ma.">
+  <section class="page-hero shell page-hero-short">
+    <p class="eyebrow"><span></span> News archive</p>
+    <h1>Milestones from the <em>field.</em></h1>
+    <p>Research publications, invited talks, standards work, product impact, and professional service.</p>
+  </section>
+  <section class="section shell news-archive">
+    {updates.map((update, index) => (
+      <article>
+        <span class="news-index">{String(index + 1).padStart(2, '0')}</span>
+        <time>{update.year}</time>
+        <h2>{update.title}</h2>
+        {update.href ? <a href={update.href} aria-label={`Read more: ${update.title}`}>↗</a> : <i></i>}
+      </article>
+    ))}
+  </section>
+</BaseLayout>

@@ -23,6 +23,8 @@ assert.match(home, /across all Uber apps on iOS and Android/);
 assert.match(home, /anti-DDoS infrastructure and network security/);
 assert.match(home, /XLINK deployed the Multipath QUIC protocol to Taobao at scale/);
 assert.match(home, /authors of the IETF Multipath QUIC protocol/);
+assert.match(home, /<h3>XLINK<\/h3>/);
+assert.match(home, /deployed Multipath QUIC to Taobao at scale/);
 assert.match(home, /Autonomous Vehicle Networking/);
 assert.match(home, /reliable vehicle-to-cloud connectivity for autonomous vehicles/);
 assert.doesNotMatch(home, /Building the networks behind real-time experiences/);

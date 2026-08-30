@@ -45,7 +45,6 @@ export const publications: Publication[] = [
     authors: 'Bingyang Wu, Kun Qian, Bo Li, Yunfei Ma, Qi Zhang, Zhigang Jiang, Jiayu Zhao, Dennis Cai, Ennan Zhai, Xuanzhe Liu, and Xin Jin',
     description: 'An elastic overlay network designed for reliable, large-scale global video conferencing.',
     category: 'Networks',
-    featured: true,
   },
   {
     year: 2022,
@@ -71,7 +70,7 @@ export const publications: Publication[] = [
     venue: 'ACM SIGCOMM',
     title: 'XLINK: QoE-Driven Multi-Path QUIC Transport in Large-Scale Video Services',
     authors: 'Zhilong Zheng, Yunfei Ma, Yanmei Liu, Furong Yang, Zhenyu Li, Yuanbo Zhang, Jiuhai Zhang, Wei Shi, Wentao Chen, Ding Li, Qing An, Hai Hong, Hongqiang Harry Liu, and Ming Zhang',
-    description: 'A production transport system that deployed the Multipath QUIC protocol to Taobao at scale.',
+    description: 'A production transport system that deployed Multipath QUIC to Taobao at scale and connects directly to my work as one of the authors of the IETF Multipath QUIC protocol.',
     href: '/papers/xlink.pdf',
     category: 'Networks',
     featured: true,

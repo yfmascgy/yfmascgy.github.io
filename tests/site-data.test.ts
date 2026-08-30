@@ -39,6 +39,22 @@ describe('portfolio content', () => {
     expect(years).toEqual([...years].sort((a, b) => b - a));
   });
 
+  it('features XLINK instead of XRON in the homepage research selection', () => {
+    const featuredTitles = publications
+      .filter(({ featured }) => featured)
+      .slice(0, 3)
+      .map(({ title }) => title);
+    const xlink = publications.find(({ title }) => title.startsWith('XLINK'));
+
+    expect(featuredTitles).toEqual([
+      expect.stringMatching(/^Cellfusion/),
+      expect.stringMatching(/^GSO-Simulcast/),
+      expect.stringMatching(/^XLINK/),
+    ]);
+    expect(featuredTitles.some((title) => title.startsWith('XRON'))).toBe(false);
+    expect(xlink?.description).toContain('authors of the IETF Multipath QUIC protocol');
+  });
+
   it('points every local publication link to an existing public asset', async () => {
     const localLinks = publications.flatMap(({ href }) => href?.startsWith('/') ? [href] : []);
     await Promise.all(localLinks.map((href) => access(`${projectRoot}/public${href}`)));
@@ -62,10 +78,14 @@ describe('portfolio content', () => {
     expect(years).toEqual([...years].sort((a, b) => b - a));
   });
 
-  it('styles both profile images with round boundaries', async () => {
+  it('styles both profile images with thin, light round boundaries', async () => {
     const styles = await readFile(`${projectRoot}/src/styles/global.css`, 'utf8');
-    expect(styles).toMatch(/\.portrait-frame\s*\{[^}]*border-radius:\s*50%/s);
-    expect(styles).toMatch(/\.about-portrait\s*\{[^}]*border-radius:\s*50%/s);
+    expect(styles).toMatch(/\.portrait-frame,\s*\.about-portrait\s*\{[^}]*aspect-ratio:\s*1/s);
+    expect(styles).toMatch(/\.portrait-frame,\s*\.about-portrait\s*\{[^}]*padding:\s*5px/s);
+    expect(styles).toMatch(/\.portrait-frame,\s*\.about-portrait\s*\{[^}]*border:\s*1px solid rgba\(14, 143, 114, 0\.28\)/s);
+    expect(styles).toMatch(/\.portrait-frame,\s*\.about-portrait\s*\{[^}]*border-radius:\s*50%/s);
+    expect(styles).toMatch(/\.portrait-frame,\s*\.about-portrait\s*\{[^}]*box-shadow:/s);
+    expect(styles).not.toMatch(/\.portrait-frame\s*\{[^}]*background-color:\s*var\(--ink\)/s);
   });
 
   it('lays out the three networking teams as equal columns', async () => {

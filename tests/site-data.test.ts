@@ -22,7 +22,10 @@ describe('portfolio content', () => {
     expect(profile.leadership).toBe('I lead Uber’s Mobile & Edge Networking organization.');
     expect(profile.networkCharter).toContain('reliable, fast, cost-efficient, secure, and multi-cloud ready');
     expect(profile.edgeScope).toContain('manages all Layer 7 traffic into Uber');
-    expect(profile.edgeScope).toContain('anti-DDoS infrastructure and network security');
+    expect(profile.edgeScope).toContain('manages Uber’s global DNS infrastructure');
+    expect(profile.edgeScope).toContain('anti-DDoS infrastructure');
+    expect(profile.edgeScope).toContain('network security');
+    expect(profile.edgeFocus).toBe('Managing Layer 7 traffic into Uber, Uber’s global DNS infrastructure, anti-DDoS infrastructure, and network security across mobile and web.');
     expect(profile.mobileScope).toBe('The Mobile Networking team owns the mobile networking stack, libraries, and observability infrastructure across all Uber apps on iOS and Android.');
     expect(profile.autonomousVehicleScope).toBe('The Autonomous Vehicle Networking team enables reliable vehicle-to-cloud connectivity for autonomous vehicles.');
     expect(profile.xlinkImpact).toBe('XLINK deployed the Multipath QUIC protocol to Taobao at scale.');

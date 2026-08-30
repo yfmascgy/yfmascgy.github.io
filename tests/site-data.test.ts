@@ -165,6 +165,8 @@ describe('portfolio content', () => {
     expect(home).toContain('Global connectivity at Uber');
     expect(home).toContain('Systems and protocols');
     expect(home).toContain('Selected record');
+    expect(home).toContain("{ organization: 'Alibaba', detail: 'Senior Manager · Alibaba Cloud' }");
+    expect(home).not.toContain('Senior Manager · Global network infrastructure');
     expect(home).not.toContain('Engineering the global network that');
     expect(home).not.toContain('profile-cta');
     expect(home).not.toContain('signal-strip');

@@ -22,6 +22,8 @@ assert.match(home, /Global connectivity at Uber/);
 assert.match(home, /Systems and protocols/);
 assert.match(home, /Selected record/);
 assert.match(home, /Experience/);
+assert.match(home, /Senior Manager · Alibaba Cloud/);
+assert.doesNotMatch(home, /Senior Manager · Global network infrastructure/);
 assert.match(home, /Recognition/);
 assert.match(home, /Academic service/);
 assert.doesNotMatch(home, /Engineering the global network that/);

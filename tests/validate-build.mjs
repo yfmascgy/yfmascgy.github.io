@@ -14,6 +14,7 @@ await Promise.all([
 
 const home = await readFile('dist/index.html', 'utf8');
 const research = await readFile('dist/research/index.html', 'utf8');
+const news = await readFile('dist/updates/index.html', 'utf8');
 
 assert.match(home, /Engineering the global network that/);
 assert.match(home, /keeps Uber moving/);
@@ -26,6 +27,8 @@ assert.match(home, /XLINK deployed the Multipath QUIC protocol to Taobao at scal
 assert.match(home, /authors of the IETF Multipath QUIC protocol/);
 assert.match(home, /<h3>XLINK<\/h3>/);
 assert.match(home, /deployed Multipath QUIC to Taobao at scale/);
+assert.match(home, /USENIX NSDI 2027 Technical Program Committee/);
+assert.match(home, /ACM MobiCom 2025 Technical Program Committee/);
 assert.match(home, /Autonomous Vehicle Networking/);
 assert.match(home, /reliable vehicle-to-cloud connectivity for autonomous vehicles/);
 assert.doesNotMatch(home, /Building the networks behind real-time experiences/);
@@ -36,6 +39,13 @@ assert.match(home, /Skip to content/);
 assert.doesNotMatch(home, /jquery|bootstrap\.min/i);
 assert.match(research, /Cellfusion/);
 assert.match(research, /Enabling Deep-Tissue Networking/);
+assert.match(news, /USENIX NSDI 2027 Technical Program Committee/);
+assert.match(news, /ACM MobiCom 2025 Technical Program Committee/);
+assert.match(news, /Cellfusion, a production vehicle-to-cloud video streaming system/);
+assert.match(news, /GSO-Simulcast, our global stream orchestration system deployed in DingTalk/);
+assert.match(news, /XLINK, our production Multipath QUIC transport deployed across Alibaba video services/);
+assert.match(news, /IETF QUIC Working Group adopted the Multipath QUIC draft/);
+assert.doesNotMatch(news, /Cellfusion and XRON were accepted/);
 
 const about = await readFile('dist/about/index.html', 'utf8');
 const builtCv = await readFile('dist/Yunfei_CV.pdf');

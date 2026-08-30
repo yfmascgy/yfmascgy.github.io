@@ -101,6 +101,18 @@ describe('portfolio content', () => {
     expect(years).toEqual([...years].sort((a, b) => b - a));
   });
 
+  it('highlights committee service, SIGCOMM papers, and Multipath QUIC standardization', () => {
+    const milestoneTitles = updates.map(({ title }) => title);
+
+    expect(milestoneTitles).toContain('Selected to serve on the USENIX NSDI 2027 Technical Program Committee.');
+    expect(milestoneTitles).toContain('Served on the ACM MobiCom 2025 Technical Program Committee.');
+    expect(milestoneTitles).toContain('Cellfusion, a production vehicle-to-cloud video streaming system, was accepted to ACM SIGCOMM 2023.');
+    expect(milestoneTitles).toContain('GSO-Simulcast, our global stream orchestration system deployed in DingTalk, was accepted to ACM SIGCOMM 2022.');
+    expect(milestoneTitles).toContain('XLINK, our production Multipath QUIC transport deployed across Alibaba video services, was accepted to ACM SIGCOMM 2021.');
+    expect(milestoneTitles).toContain('The IETF QUIC Working Group adopted the Multipath QUIC draft, advancing the protocol toward standardization.');
+    expect(milestoneTitles.some((title) => title.includes('Cellfusion and XRON'))).toBe(false);
+  });
+
   it('styles both profile images with thin, light round boundaries', async () => {
     const styles = await readFile(`${projectRoot}/src/styles/global.css`, 'utf8');
     expect(styles).toMatch(/\.portrait-frame,\s*\.about-portrait\s*\{[^}]*aspect-ratio:\s*1/s);

@@ -206,14 +206,17 @@ export interface Update {
 }
 
 export const updates: Update[] = [
-  { year: 2024, title: 'Invited to serve on the program committees for ACM SIGCOMM and ACM HotMobile.' },
-  { year: 2023, title: 'Cellfusion and XRON were accepted to ACM SIGCOMM.' },
+  { year: 2027, title: 'Selected to serve on the USENIX NSDI 2027 Technical Program Committee.' },
+  { year: 2025, title: 'Served on the ACM MobiCom 2025 Technical Program Committee.' },
+  { year: 2024, title: 'Served on the ACM SIGCOMM and ACM HotMobile Technical Program Committees.' },
+  { year: 2023, title: 'Cellfusion, a production vehicle-to-cloud video streaming system, was accepted to ACM SIGCOMM 2023.', href: '/papers/cellfusion.pdf' },
   { year: 2023, title: 'Invited to speak at the IAP workshop at UC San Diego.' },
+  { year: 2022, title: 'GSO-Simulcast, our global stream orchestration system deployed in DingTalk, was accepted to ACM SIGCOMM 2022.', href: 'https://conferences.sigcomm.org/sigcomm/2022/program.html' },
   { year: 2022, title: 'XLINK became a new product in the Alibaba Cloud IoT family: Multi-Link Aggregation Cube.', href: 'https://help.aliyun.com/document_detail/2249092.html' },
-  { year: 2022, title: 'GSO-Simulcast was accepted to ACM SIGCOMM.', href: 'https://conferences.sigcomm.org/sigcomm/2022/program.html' },
+  { year: 2021, title: 'XLINK, our production Multipath QUIC transport deployed across Alibaba video services, was accepted to ACM SIGCOMM 2021.', href: 'https://dl.acm.org/doi/10.1145/3452296.3472893' },
+  { year: 2021, title: 'The IETF QUIC Working Group adopted the Multipath QUIC draft, advancing the protocol toward standardization.', href: 'https://datatracker.ietf.org/doc/draft-ietf-quic-multipath' },
   { year: 2021, title: 'Published an APNIC article on efficient multipath transport with QUIC video services.', href: 'https://blog.apnic.net/2021/12/08/efficient-multipath-transport-with-quic-video-services/' },
   { year: 2021, title: 'HeadFi received the Best Paper Runner-Up award at ACM MobiCom.', href: 'https://www.sigmobile.org/mobicom/2021/' },
-  { year: 2021, title: 'The Multipath QUIC draft was adopted by the IETF QUIC Working Group.', href: 'https://datatracker.ietf.org/doc/draft-ietf-quic-multipath' },
   { year: 2021, title: 'Presented an industry keynote at APNET and a keynote at ACM MobiHoc.' },
   { year: 2020, title: 'NFC+ was accepted to ACM SIGCOMM.' },
   { year: 2019, title: 'TurboTrack was accepted to USENIX NSDI and covered by MIT News and other media.', href: 'https://news.mit.edu/2019/robots-track-moving-objects-unprecedented-precision-0219' },

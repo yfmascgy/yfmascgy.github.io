@@ -7,7 +7,7 @@ export const navigation = [
 
 export const profile = {
   currentRole: 'Sr. Engineering Manager',
-  leadership: 'I lead Uber’s Mobile, Edge, and Autonomous Vehicle Networking organization.',
+  leadership: 'I lead Uber’s Mobile & Edge Networking organization.',
   networkCharter: 'My charter is to build and operate Uber’s global network to be reliable, fast, cost-efficient, secure, and multi-cloud ready.',
   edgeScope: 'The Edge Networking team manages all Layer 7 traffic into Uber, supporting both mobile and web platforms, and owns Uber’s anti-DDoS infrastructure and network security.',
   mobileScope: 'The Mobile Networking team owns the mobile networking stack, libraries, and observability infrastructure across all Uber apps on iOS and Android.',
@@ -206,7 +206,7 @@ export interface Update {
 }
 
 export const updates: Update[] = [
-  { year: 2027, title: 'Selected to serve on the USENIX NSDI 2027 Technical Program Committee.' },
+  { year: 2026, title: 'Served on the USENIX NSDI 2027 Technical Program Committee.' },
   { year: 2025, title: 'Served on the ACM MobiCom 2025 Technical Program Committee.' },
   { year: 2024, title: 'Served on the ACM SIGCOMM and ACM HotMobile Technical Program Committees.' },
   { year: 2023, title: 'Cellfusion, a production vehicle-to-cloud video streaming system, was accepted to ACM SIGCOMM 2023.', href: '/papers/cellfusion.pdf' },

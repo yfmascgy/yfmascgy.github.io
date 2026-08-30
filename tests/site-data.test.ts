@@ -19,7 +19,7 @@ const projectRoot = fileURLToPath(new URL('..', import.meta.url));
 describe('portfolio content', () => {
   it('uses the current Uber title and team responsibilities verbatim', () => {
     expect(profile.currentRole).toBe('Sr. Engineering Manager');
-    expect(profile.leadership).toBe('I lead Uber’s Mobile, Edge, and Autonomous Vehicle Networking organization.');
+    expect(profile.leadership).toBe('I lead Uber’s Mobile & Edge Networking organization.');
     expect(profile.networkCharter).toContain('reliable, fast, cost-efficient, secure, and multi-cloud ready');
     expect(profile.edgeScope).toContain('manages all Layer 7 traffic into Uber');
     expect(profile.edgeScope).toContain('anti-DDoS infrastructure and network security');
@@ -104,7 +104,10 @@ describe('portfolio content', () => {
   it('highlights committee service, SIGCOMM papers, and Multipath QUIC standardization', () => {
     const milestoneTitles = updates.map(({ title }) => title);
 
-    expect(milestoneTitles).toContain('Selected to serve on the USENIX NSDI 2027 Technical Program Committee.');
+    expect(updates[0]).toEqual({
+      year: 2026,
+      title: 'Served on the USENIX NSDI 2027 Technical Program Committee.',
+    });
     expect(milestoneTitles).toContain('Served on the ACM MobiCom 2025 Technical Program Committee.');
     expect(milestoneTitles).toContain('Cellfusion, a production vehicle-to-cloud video streaming system, was accepted to ACM SIGCOMM 2023.');
     expect(milestoneTitles).toContain('GSO-Simulcast, our global stream orchestration system deployed in DingTalk, was accepted to ACM SIGCOMM 2022.');

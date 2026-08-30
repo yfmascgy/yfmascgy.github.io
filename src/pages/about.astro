@@ -6,8 +6,9 @@ import { awards, committeeService, mediaCoverage, patents, profile } from '../da
 <BaseLayout title="About — Yunfei Ma" description="About Yunfei Ma, a Sr. Engineering Manager at Uber leading Mobile & Edge Networking, and a researcher based in Sunnyvale, California.">
   <section class="page-hero about-hero shell">
     <div>
-      <p class="eyebrow"><span></span> About</p>
-      <h1>Engineering with <em>range and depth.</em></h1>
+      <p class="eyebrow"><span></span> Profile</p>
+      <h1>About</h1>
+      <p>Engineering leadership and systems research across global networking, mobile platforms, and wireless systems.</p>
     </div>
     <div class="about-portrait" data-shape="round"><img src="/images/yunfei_bio.jpg" alt="Yunfei Ma" width="250" height="250" /></div>
   </section>
@@ -15,7 +16,7 @@ import { awards, committeeService, mediaCoverage, patents, profile } from '../da
   <section class="bio-section shell">
     <aside><p>Now</p><strong>{profile.currentRole}</strong><span>Uber · Sunnyvale, California</span></aside>
     <div class="bio-copy">
-      <p>{profile.leadership}</p>
+      <p class="bio-lead">{profile.leadership}</p>
       <p>{profile.edgeScope}</p>
       <p>{profile.mobileScope}</p>
       <p>Previously, I was a researcher and senior manager at Alibaba Group in Sunnyvale, where I helped build mobile and wide-area networking technologies for Alibaba’s global infrastructure across commerce, video conferencing, and cloud services.</p>
@@ -76,7 +77,7 @@ import { awards, committeeService, mediaCoverage, patents, profile } from '../da
     <div class="media-layout shell">
       <div class="media-intro">
         <p class="kicker kicker-light">In the media</p>
-        <h2 id="media-heading">Research covered around the world.</h2>
+        <h2 id="media-heading">Selected coverage</h2>
         <p>Selected coverage of work spanning battery-free networks, in-body communication, and precise robotic sensing.</p>
       </div>
       <div class="media-grid">

@@ -150,6 +150,34 @@ describe('portfolio content', () => {
     const styles = await readFile(`${projectRoot}/src/styles/global.css`, 'utf8');
     expect(styles).toMatch(/\.role-scope\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*1fr\)/s);
   });
+
+  it('uses a restrained, evidence-led hierarchy across every page', async () => {
+    const [home, research, talks, about, news, styles] = await Promise.all([
+      readFile(`${projectRoot}/src/pages/index.astro`, 'utf8'),
+      readFile(`${projectRoot}/src/pages/research.astro`, 'utf8'),
+      readFile(`${projectRoot}/src/pages/talks.astro`, 'utf8'),
+      readFile(`${projectRoot}/src/pages/about.astro`, 'utf8'),
+      readFile(`${projectRoot}/src/pages/updates.astro`, 'utf8'),
+      readFile(`${projectRoot}/src/styles/global.css`, 'utf8'),
+    ]);
+
+    expect(home).toContain('<h1>Yunfei Ma</h1>');
+    expect(home).toContain('Global connectivity at Uber');
+    expect(home).toContain('Systems and protocols');
+    expect(home).toContain('Selected record');
+    expect(home).not.toContain('Engineering the global network that');
+    expect(home).not.toContain('profile-cta');
+    expect(home).not.toContain('signal-strip');
+    expect(research).toContain('<h1>Selected publications</h1>');
+    expect(talks).toContain('<h1>Talks & keynotes</h1>');
+    expect(about).toContain('<h1>About</h1>');
+    expect(news).toContain('<h1>News & milestones</h1>');
+    expect(styles).toMatch(/--mint:\s*#5ce1bd/);
+    expect(styles).toMatch(/--mint-dark:\s*#0e8f72/);
+    expect(styles).toMatch(/\.section-heading h2\s*\{[^}]*font-size:\s*clamp\(1\.8rem,\s*3vw,\s*2\.7rem\)/s);
+    expect(styles).toMatch(/\.page-hero h1\s*\{[^}]*font-size:\s*clamp\(2\.8rem,\s*5vw,\s*4\.6rem\)/s);
+    expect(styles).toMatch(/\.evidence-grid\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*1fr\)/s);
+  });
 });
 
 describe('navigation', () => {

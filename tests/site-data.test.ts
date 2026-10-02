@@ -124,10 +124,10 @@ describe('portfolio content', () => {
     expect(new Set(mediaCoverage.map(({ project }) => project))).toEqual(new Set(['RFIQ', 'IVN', 'RFly', 'TurboTrack']));
   });
 
-  it('links the June 2026 full CV revision', async () => {
+  it('links the September 2026 full CV revision', async () => {
     const cv = await readFile(`${projectRoot}/public/Yunfei_CV.pdf`);
-    expect(cv).toHaveLength(100941);
-    expect(createHash('sha256').update(cv).digest('hex')).toBe('a3b10b152d78158d433c205003a289e02d8e09c62210a6eff61af11de16c4cb2');
+    expect(cv).toHaveLength(98515);
+    expect(createHash('sha256').update(cv).digest('hex')).toBe('605e7e0a2d423aa37874f1e1c800bc94a306e09ca1298d1d753f4f1353fc23fa');
   });
 
   it('keeps update years in reverse chronological order', () => {

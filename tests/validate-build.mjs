@@ -89,6 +89,6 @@ assert.match(about, /The Verge/);
 assert.match(about, /IEEE Spectrum/);
 assert.match(about, /MIT Technology Review/);
 assert.match(about, /aria-label="MIT News coverage of TurboTrack"/);
-assert.equal(createHash('sha256').update(builtCv).digest('hex'), 'a3b10b152d78158d433c205003a289e02d8e09c62210a6eff61af11de16c4cb2');
+assert.equal(createHash('sha256').update(builtCv).digest('hex'), '605e7e0a2d423aa37874f1e1c800bc94a306e09ca1298d1d753f4f1353fc23fa');
 
 console.log('Production build validation passed.');
